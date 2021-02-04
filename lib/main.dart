@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Widgets/02_1_GridViewDemo.dart';
 import 'package:flutter_app/Widgets/a_provider_shopper_demo/ProviderShopperDemo.dart';
 
+import 'Widgets/b_SQLiteDemo/06_1_SQLiteDemo.dart';
+
 void main() {
+  // WidgetFlutterBinding是用来与引擎交互的，确保它的实例是存在的，是保证运行的关键
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(ProviderShopperDemo());
+  // runApp(ProviderShopperDemo());
   // runApp(TestFinalDemo());
   // runApp(TestRebuild());
   // runApp(MyApp());
@@ -32,6 +34,7 @@ void main() {
   // runApp(StreamProviderDemo());
   // runApp(ValueListenableProviderDemo());
   // runApp(ProxyProviderDemo());
+  runApp(SQLiteDemo());
 }
 
 
