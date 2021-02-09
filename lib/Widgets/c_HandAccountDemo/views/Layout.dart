@@ -20,8 +20,14 @@ class Layout extends StatelessWidget {
             Text(title)
           ],),
           actions: [
-            FlatButton(onPressed: (){Navigator.pushNamed(context, '/HelpView');}, child: Icon(Icons.help,color: Colors.white,)),
-            FlatButton(onPressed: (){Navigator.pushNamed(context, '/LoginView');}, child: Icon(Icons.exit_to_app,color: Colors.white,)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                IconButton(onPressed: (){Navigator.pushNamed(context, '/AccountView');}, icon: Icon(Icons.add_box,color: Colors.white,)),
+                IconButton(onPressed: (){Navigator.pushNamed(context, '/HelpView');}, icon: Icon(Icons.help,color: Colors.white,)),
+                IconButton(onPressed: (){Navigator.pushNamed(context, '/LoginView');}, icon: Icon(Icons.exit_to_app,color: Colors.white,)),
+              ],
+            )
           ],
         ),
         body: child,
