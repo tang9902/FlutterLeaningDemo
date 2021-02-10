@@ -97,7 +97,7 @@ class DownContainer extends StatelessWidget {
                         children:
                         // map应包含字段： (item) => DownItem(key:ValueKey(item['id']),title: item['title'], num: item['amount'], subTitle: item['comment'],)
                         mapList.map<DownItem>(
-                                (item) => DownItem(key:ValueKey(item['id']),title: item['title'] , num: item['amount'].toString(), subTitle: item['comment'], dateTime: Tools.formatDate(item['updatedAt']),)
+                                (item) => DownItem(key:ValueKey(item['id']),title: item['title'] , num: item['amount'].toString(), subTitle: item['comment'], dateTime: Tools.formatDate(item['updatedAt'],format: 'M月d日 H时m分'),)
                         ).toList()
                     );
                   }
@@ -122,7 +122,7 @@ class DownItem extends StatelessWidget {
     return ListTile(
       leading: Icon(Icons.monetization_on_outlined),
       title: Text(title),
-      subtitle: Text(dateTime + ' ' + subTitle),
+      subtitle: Text(dateTime + ' - ' + subTitle),
       trailing: Text(num),
     );
   }

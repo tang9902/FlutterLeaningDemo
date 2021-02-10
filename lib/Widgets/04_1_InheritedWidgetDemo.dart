@@ -34,7 +34,7 @@ class MyInheritedWidget extends InheritedWidget {
     return context.dependOnInheritedWidgetOfExactType<MyInheritedWidget>();
   }
 
-  // 实现一个过滤器，来过滤重构的条件。
+  // 实现一个过滤器，来决定是否触发子元件（该子元件必须是状态元件）的didChangeDependencies调用
   @override
   bool updateShouldNotify(covariant MyInheritedWidget oldWidget) {
     // TODO: implement updateShouldNotify
@@ -61,7 +61,6 @@ class TestWidgetA extends StatelessWidget {
   }
 }
 
-
 class TestWidgetB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -78,8 +77,6 @@ class TestWidgetB extends StatelessWidget {
     );
   }
 }
-
-
 
 class TestWidgetC extends StatelessWidget {
   @override

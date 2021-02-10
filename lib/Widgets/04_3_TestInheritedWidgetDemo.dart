@@ -21,10 +21,10 @@ class MyRoot extends StatefulWidget {
 }
 
 class _MyRootState extends State<MyRoot> {
-  String _var = 'Hello';
+  String rootText = 'Hello';
   void _update(){
     setState(() {
-      _var += 'b';
+      rootText += 'b';
     });
   }
 
@@ -33,9 +33,9 @@ class _MyRootState extends State<MyRoot> {
     print('MyRoot重构子树');
     return Column(
       children: [
-        Text(_var),
-        ElevatedButton(onPressed: _update, child: Text(_var),),
-        Demo()
+        Text(rootText),
+        ElevatedButton(onPressed: _update, child: Text('rootText .+=b:' + rootText),),
+        _InheritedContainer()
       ],
     );
   }
@@ -43,16 +43,16 @@ class _MyRootState extends State<MyRoot> {
 
 
 
-class Demo extends StatefulWidget {
+class _InheritedContainer extends StatefulWidget {
   @override
-  _DemoState createState() => _DemoState();
+  _InheritedContainerState createState() => _InheritedContainerState();
 }
 
-class _DemoState extends State<Demo> {
+class _InheritedContainerState extends State<_InheritedContainer> {
   int _id = 1;
   void _updateID(){
     setState(() {
-      print('更新id');
+      print('_InheritedContainerState: _id++');
       _id++;
     });
   }
@@ -61,26 +61,26 @@ class _DemoState extends State<Demo> {
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
     super.didChangeDependencies();
-    print('_________didChangeDependencies');
+    print('_InheritedContainerState:_________didChangeDependencies');
   }
 
   @override
-  void didUpdateWidget(covariant Demo oldWidget) {
+  void didUpdateWidget(covariant _InheritedContainer oldWidget) {
     // TODO: implement didUpdateWidget
     super.didUpdateWidget(oldWidget);
-    print('_________didUpdateWidget');
+    print('_InheritedContainerState:_________didUpdateWidget');
   }
   @override
   Widget build(BuildContext context) {
-    print('Demo重构子树');
+    print('_InheritedContainer重构子树');
     return MyInheritedWidget(
         id:_id,
         child: Column(
           children: [
             MyChildButton(onPressCallBack: _updateID),
             MyChildText(),
-            Opacity(opacity: 0.8,child: Container(color: Colors.red,child: Text('透明度'),),),
-            MyChildState()
+            //Opacity(opacity: 0.8,child: Container(color: Colors.red,child: Text('透明度'),),),
+            MyChildSWidget()
           ],
         )
     );
@@ -118,7 +118,7 @@ class MyChildButton extends StatelessWidget {
   Widget build(BuildContext context) {
     print('MyChildButton重构子树');
     return Container(
-      child: ElevatedButton(onPressed: ()=>onPressCallBack(),child: Text('更新id'),),
+      child: ElevatedButton(onPressed: ()=>onPressCallBack(),child: Text('id++'),),
     );
   }
 }
@@ -128,22 +128,22 @@ class MyChildText extends StatelessWidget {
     MyInheritedWidget myInheritedWidget = MyInheritedWidget.of(context);
     print('MyChildText重构子树');
     return Container(
-      child: Text(myInheritedWidget.id.toString())
+      child: Text('MyInheritedWidget:id:' + myInheritedWidget.id.toString())
     );
   }
 }
-class MyChildState extends StatefulWidget {
+class MyChildSWidget extends StatefulWidget {
   @override
-  _MyChildStateState createState() => _MyChildStateState();
+  _MyChildSWidgetState createState() => _MyChildSWidgetState();
 }
 
-class _MyChildStateState extends State<MyChildState> {
+class _MyChildSWidgetState extends State<MyChildSWidget> {
   int _id;
   @override
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
     super.didChangeDependencies();
-    print('xxxxxxxxxxxxxxxxxxxxxxdidChangeDependencies');
+    print('_MyChildSWidgetState_______didChangeDependencies');
     setState(() {
       MyInheritedWidget myInheritedWidget = MyInheritedWidget.of(context);
       _id = myInheritedWidget.id;
@@ -152,8 +152,8 @@ class _MyChildStateState extends State<MyChildState> {
 
   @override
   Widget build(BuildContext context) {
-    print('_MyChildStateState build');
-    return Container(child: Text(_id.toString()),);
+    print('_MyChildSWidgetState build子树');
+    return Container(child: Text('myInheritedWidget.id：' + _id.toString()),);
   }
 }
 
