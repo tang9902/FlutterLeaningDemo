@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Widgets/c_HandAccountDemo/views/AccountDialogBody.dart';
 import 'package:flutter_app/Widgets/c_HandAccountDemo/views/HelpView.dart';
 import 'package:flutter_app/Widgets/c_HandAccountDemo/views/HomeView.dart';
 import 'package:flutter_app/Widgets/c_HandAccountDemo/views/LoginView.dart';

@@ -6,23 +6,13 @@ import 'package:flutter_app/Widgets/c_HandAccountDemo/views/Layout.dart';
 import 'package:provider/provider.dart';
 
 // 页面主框架
-class AccountView extends StatelessWidget {
+class AccountDialogBody extends StatefulWidget {
+  AccountDialogBody({Key key}) : super(key: key);
   @override
-  Widget build(BuildContext context) {
-    return Layout(
-        title: '记帐',
-        iconData: Icons.add_box,
-        child:_MyForm()
-    );
-  }
-}
-class _MyForm extends StatefulWidget {
-  _MyForm({Key key}) : super(key: key);
-  @override
-  _MyFormState createState() => _MyFormState();
+  _AccountDialogBodyState createState() => _AccountDialogBodyState();
 }
 
-class _MyFormState extends State<_MyForm> {
+class _AccountDialogBodyState extends State<AccountDialogBody> {
   final _formKey = GlobalKey<FormState>();
   AccountRecord accountRecord;
 
@@ -30,12 +20,14 @@ class _MyFormState extends State<_MyForm> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    accountRecord = AccountRecord(accountId: 2,courseId: 2);
+    accountRecord = AccountRecord(accountId: 1,courseId: 1);
   }
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(50),
+      height: 260,
+      width: 1000,
+      margin: EdgeInsets.all(10),
       child: Form(
         key: _formKey,
         child: ListView(
@@ -79,6 +71,9 @@ class _MyFormState extends State<_MyForm> {
               onChanged: (value) {
                 accountRecord.comment = value;
               },
+            ),
+            SizedBox(
+              height: 20,
             ),
             ElevatedButton(
               onPressed: () {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'Widgets/c_HandAccountDemo/HandAccountDemo.dart';
+import 'flutter_gallery_demos/00_MyNavigator.dart';
+
 
 
 void main() {
@@ -35,13 +36,18 @@ void main() {
   // runApp(ValueListenableProviderDemo());
   // runApp(ProxyProviderDemo());
   // runApp(SQLiteDemo());
-  runApp(HandAccountDemo());
+  // runApp(HandAccountDemo());
   // runApp(TabBarDemo());
   // runApp(TextFieldDemo01());
   // runApp(TextFieldDemo2());
   // runApp(FormDemo());
   // runApp(DropdownButtonDemo());
   // runApp(UpdateDataOverTheInternetDemo());
+  // runApp(DialogDemo01());
+  // runApp(DialogDemo02());
+  // runApp(DialogDemo03());
+  // runApp(MyAppBarDemo());
+  runApp(MyNavigator());
 }
 
 
