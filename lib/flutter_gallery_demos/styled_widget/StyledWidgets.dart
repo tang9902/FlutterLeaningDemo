@@ -21,3 +21,12 @@ class WhiteText extends StatelessWidget {
     return ColorText(content,color: Colors.white);
   }
 }
+class GreyText extends StatelessWidget {
+  final String content;
+  const GreyText(this.content, {Key key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ColorText(content,color: Colors.black38);
+  }
+}

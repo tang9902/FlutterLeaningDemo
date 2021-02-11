@@ -12,6 +12,11 @@ import '04_MyBottomNavigationDemo01.dart';
 import '04_MyBottomNavigationDemo02.dart';
 import '05_MyPersistentBottomSheetDemo01.dart';
 import '05_MyPersistentBottomSheetDemo02.dart';
+import '06_MyButtonDemo.dart';
+import '07_MyCardsDemo.dart';
+import '08_MyChipsDemo.dart';
+import '09_MyDataTableDemo.dart';
+import '10_MyDialogDemo.dart';
 
 class MyNavigator extends StatelessWidget {
   @override
@@ -27,6 +32,11 @@ class MyNavigator extends StatelessWidget {
         '/MyBottomNavigationDemo02': (context)=>MyBottomNavigationDemo02(),
         '/MyPersistentBottomSheetDemo01': (context)=>MyPersistentBottomSheetDemo01(),
         '/MyPersistentBottomSheetDemo02': (context)=>MyPersistentBottomSheetDemo02(),
+        '/MyButtonDemo': (context)=>MyButtonDemo(),
+        '/MyCardsDemo': (context)=>MyCardsDemo(),
+        '/MyChipsDemo': (context)=>MyChipsDemo(),
+        '/MyDataTableDemo': (context)=>MyDataTableDemo(),
+        '/MyDialogDemo': (context)=>MyDialogDemo(),
       },
     );
   }
@@ -46,6 +56,11 @@ class _Home extends StatelessWidget {
             ..._getListTile(context, '04_MyBottomNavigationDemo02', '底部导航栏二', '/MyBottomNavigationDemo02'),
             ..._getListTile(context, '05_MyPersistentBottomSheetDemo01', '底部工作表一', '/MyPersistentBottomSheetDemo01'),
             ..._getListTile(context, '05_MyPersistentBottomSheetDemo02', '底部工作表二', '/MyPersistentBottomSheetDemo02'),
+            ..._getListTile(context, '06_MyButtonDemo', '按钮', '/MyButtonDemo'),
+            ..._getListTile(context, '07_MyCardsDemo', '卡片', '/MyCardsDemo'),
+            ..._getListTile(context, '08_MyChipsDemo', '动作碎片（信息块）', '/MyChipsDemo'),
+            ..._getListTile(context, '09_MyDataTableDemo', '数据表', '/MyDataTableDemo'),
+            ..._getListTile(context, '10_MyDialogDemo', '对话框', '/MyDialogDemo'),
           ],
         ),
       ),
@@ -58,7 +73,7 @@ List<Widget> _getListTile(BuildContext context,String subTitle,String title, Str
       elevation: 2,
       child: ListTile(
         title:WhiteText(title),
-        subtitle:WhiteText(subTitle),
+        subtitle:GreyText(subTitle),
         trailing:IconButton(onPressed: ()=>Navigator.pushNamed(context, routeName), icon: Icon(Icons.arrow_forward,color: Colors.white,)),
         tileColor: Colors.green,
       ),
