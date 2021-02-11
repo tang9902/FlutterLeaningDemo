@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
 
-class MyBottomNavigationDemo extends StatelessWidget {
+class MyBottomNavigationDemo01 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -47,9 +47,9 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>  with Resto
   String _title(BuildContext context) {
     switch (widget.type) {
       case BottomNavigationDemoType.withLabels:
-        return 'demoBottomNavigationPersistentLabels';
+        return '常驻标签页';
       case BottomNavigationDemoType.withoutLabels:
-        return 'demoBottomNavigationSelectedLabel';
+        return '已选择标签';
     }
     return '';
   }
@@ -74,7 +74,7 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>  with Resto
       ),
       BottomNavigationBarItem(
         icon: const Icon(Icons.alarm_on),
-        label: '警告',
+        label: '提醒',
       ),
       BottomNavigationBarItem(
         icon: const Icon(Icons.camera_enhance),

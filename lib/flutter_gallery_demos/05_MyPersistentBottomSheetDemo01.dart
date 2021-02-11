@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-class MyPersistentBottomSheetDemo extends StatelessWidget {
+class MyPersistentBottomSheetDemo01 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
