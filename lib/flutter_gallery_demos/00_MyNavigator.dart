@@ -17,6 +17,7 @@ import '07_MyCardsDemo.dart';
 import '08_MyChipsDemo.dart';
 import '09_MyDataTableDemo.dart';
 import '10_MyDialogDemo.dart';
+import '11_MyGridListDemo.dart';
 
 class MyNavigator extends StatelessWidget {
   @override
@@ -37,6 +38,7 @@ class MyNavigator extends StatelessWidget {
         '/MyChipsDemo': (context)=>MyChipsDemo(),
         '/MyDataTableDemo': (context)=>MyDataTableDemo(),
         '/MyDialogDemo': (context)=>MyDialogDemo(),
+        '/MyGridListDemo': (context)=>MyGridListDemo(),
       },
     );
   }
@@ -61,6 +63,7 @@ class _Home extends StatelessWidget {
             ..._getListTile(context, '08_MyChipsDemo', '动作碎片（信息块）', '/MyChipsDemo'),
             ..._getListTile(context, '09_MyDataTableDemo', '数据表', '/MyDataTableDemo'),
             ..._getListTile(context, '10_MyDialogDemo', '对话框', '/MyDialogDemo'),
+            ..._getListTile(context, '11_MyGridListDemo', '网格', '/MyGridListDemo'),
           ],
         ),
       ),

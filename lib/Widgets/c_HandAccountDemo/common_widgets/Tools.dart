@@ -9,8 +9,9 @@ class Tools{
     return formator.format(dateTime);
   }
 
-  static void openDialog({BuildContext context, Widget dialogBody, String title}){
-    showDialog(
+  // 此处T表示Navigator.pop(context, T someData)
+  static Future<int> openDialog<T>({BuildContext context, Widget dialogBody, String title}) async{
+    return showDialog<int>(
       context: context,
       builder: (BuildContext context) {
         return SimpleDialog(
@@ -18,7 +19,7 @@ class Tools{
           title: ListTile(
             tileColor: Colors.blueAccent,
             title: Text(title,style: TextStyle(color: Colors.white),),
-            trailing: IconButton(onPressed: ()=>Navigator.pop(context), icon: Icon(Icons.close,color: Colors.white,),),
+            trailing: IconButton(onPressed: ()=>Navigator.pop(context, 0), icon: Icon(Icons.close,color: Colors.white,),),
           ),
           children: [
             dialogBody

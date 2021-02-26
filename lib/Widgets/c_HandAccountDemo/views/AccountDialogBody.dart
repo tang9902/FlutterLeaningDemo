@@ -81,19 +81,15 @@ class _AccountDialogBodyState extends State<AccountDialogBody> {
                   // _formKey.currentState.save();
                   print('验证通过，处理业务');
                   accountRecord.updatedAt = accountRecord.createdAt = DateTime.now().millisecondsSinceEpoch;
-                  print(accountRecord.toMap());
                   SQLiteDB.getInstance().then((db) {
                     db.insert('account_record', accountRecord.toMap()).then((value){
-                      final _model = Provider.of<AccountRecord>(context, listen: false);
-                      _model.fetchMapListAndNotify();
-                      Navigator.pop(context);
+                      Navigator.pop(context, 1);
                     });
                   }
                   );
 
                 }else {
                   print('难不通过');
-                  print(accountRecord.toMap());
                 }
               },
               child: Text('提交'),

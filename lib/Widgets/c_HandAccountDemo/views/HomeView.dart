@@ -24,9 +24,18 @@ class HomeView extends StatelessWidget {
               ],
               tabViewHight: 300,
             ),
-            IconButton(onPressed: (){
-              Tools.openDialog(context: context, title: '记帐', dialogBody: AccountDialogBody());
-            }, icon: Icon(Icons.add_box,color: Colors.green,size: 50,)),
+            IconButton(
+                onPressed: (){
+                  Tools.openDialog(context: context, title: '记帐', dialogBody: AccountDialogBody()).then((value)
+                  {
+                    if(value == 1){
+                      print('AccountRecord.fetchMapListAndNotify');
+                      final _model = Provider.of<AccountRecord>(context, listen: false);
+                      _model.fetchMapListAndNotify();
+                    }
+                  });
+                },
+                icon: Icon(Icons.add_box,color: Colors.green,size: 50,)),
           ],
         )
     );
